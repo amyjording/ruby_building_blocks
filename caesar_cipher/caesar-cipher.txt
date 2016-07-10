@@ -1,0 +1,33 @@
+caesar1 vs caesar 2 methods -
+
+
+I came upon two methods of approach to caesar cipher. I like both of them for different reasons, but caesar1 strikes me as the more “elegant” approach and uses less “hackish” attempts.
+
+caesar2 is incredibly clever though and makes good use of techniques like modulo for making the loop adaptable to any number you type in.
+
+This approach creates a block with two if statements to filter the text supplied.
+
+The first if statement uses a regular expression to select all upper and lowercase alphabet characters.  All characters that fit this filter then get transformed to ASCII through the .ord method and then the shift parameter is applied.
+
+Another if statement is applied, and this is the part that initially caused me to look further into more approaches to solving this problem.
+
+First, I didn’t like so many if statements piling up. It seems that my gut wants to resist that many nested if statements in a block because it “feels” like stepping away from how Ruby is supposed to work.  It’s repetition and DRY is the principle we’re going for.
+
+Even more, when I studied the if statements, I hadn’t understood what .ord did yet and had not yet realized that the coder had placed the array into ASCII.  So when those if statements were using less than 90 or 122  or greater that 65 or 97, I was asking the screen, “What are those numbers?  Where did this person come up with those numbers?”
+
+Upon more research, I had come to find out that they were ASCII numbers associated with the beginning and end of the alphabet in capital and lowercase form.
+
+This again, didn’t set well with me.  It seemed too “hack” for me, like too much meddling.  There had to be something more Ruby-esque and simple to get the same precision and wrap z back to A, while keeping the sentence structure in tact.
+
+
+This is where caesar1 came into my focus and truly blew my mind.  
+
+In this approach, there is no transforming anything to a number.  It’s the approach of array rotation and then shifting however many numbers you want to put in, and since it only involves alphabet characters, there’s automatically no harassment of whitespace or punctuation.
+
+By creating two arrays, one capital and one not, you then plug each into their own Hash.  Zip the array into the hash as the key and rotate and shift the array as the value.  You then are linking the key (original text) with value (shifted text).
+
+No messy ASCII code look ups, zero if statements and minimal repeats.  Plus there is no need to actually write out what to do with characters that aren’t alphabetical.
+
+The final touch is to merge both Hashes, and then run the text through a block of code that checks key and returns value, thereby, the caesar_cipher.
+
+To properly execute, you add the .join method to the end of caesar_cipher to bring it back to a string.

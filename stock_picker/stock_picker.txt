@@ -1,0 +1,21 @@
+stock1.rb is not properly working version of a solution, but is what I came up
+with on my own without looking for direct answer help.  I thought of solutions
+and looked up help on the principles of my ideas and then took it as far as I could.
+
+Finally after so much struggle while hitting some dead ends, it was time to get
+some help and I found it.
+
+stock2.rb represents my solution with example based help.
+
+I learned that I was onto the right idea but trying to hard to force things to
+process in a harder way than they needed to.
+
+For example, I was trying to pinpoint index numbers and drop them into either another
+array or a hash to try to run comparisons, only to find that comparisons of index
+numbers aren't really what they are for.
+
+Finally I learned that a simple (-2) on the array index location (something I was
+vaguely aware of but unable to connect this with my solution approach) was enough
+to ensure that the stock 'buy' was never in a positon that wouldn't allow for a sell.
+
+ 
